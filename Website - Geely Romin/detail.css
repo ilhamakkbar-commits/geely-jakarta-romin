@@ -1,0 +1,124 @@
+/* ===== Halaman detail mobil ===== */
+:root { --biru: #1a5fd0; }
+
+.detail { max-width: 1200px; margin: 0 auto; padding: 8px 20px 48px; }
+
+/* Semua paragraf rata kiri-kanan */
+.detail p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Jejak halaman: Beranda > Produk > Nama mobil */
+.crumb { font-size: .9rem; margin: 8px 0 20px; }
+.crumb ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.crumb li + li::before { content: "›"; margin-right: 6px; color: #6b7a99; }
+.crumb a { color: var(--navy); }
+
+/* Bagian atas: gambar + ringkasan */
+.hero-car {
+  display: grid; gap: 24px; align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.hero-car__img { width: 100%; height: auto; display: block; border-radius: 14px; background: #eef3fb; }
+.hero-car h1 { margin: 0 0 8px; color: var(--navy); font-size: 2rem; line-height: 1.2; }
+.hero-car p { margin: 0 0 12px; max-width: 60ch; }
+.harga { font-weight: 700; color: var(--navy); }
+
+/* Tombol */
+.aksi { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.btn {
+  display: inline-block; padding: 12px 20px; border-radius: 8px;
+  font-weight: 600; text-decoration: none; border: 2px solid var(--navy);
+}
+.btn--wa { background: #25d366; border-color: #25d366; color: #06260f; }
+.btn--wa:hover { background: #3be07c; border-color: #3be07c; }
+.btn--biru { background: var(--navy); color: #fff; }
+.btn--biru:hover { background: var(--navy-2); }
+.btn--garis { background: transparent; color: var(--navy); }
+.btn--garis:hover { background: #eef3fb; }
+
+/* Bagian umum */
+.blok { margin-top: 56px; }
+.blok h2 { margin: 0 0 8px; color: var(--navy); font-size: 1.7rem; line-height: 1.25; }
+.blok h3 { margin: 32px 0 14px; color: var(--navy); font-size: 1.2rem; }
+.blok__intro { margin: 0 0 24px; max-width: 70ch; }
+
+/* Kotak angka (spesifikasi dan garansi) */
+.kotak-grid { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); }
+.kotak {
+  padding: 22px 14px; background: #f1f6ff;
+  border: 1px solid #dbe6f8; border-radius: 16px; text-align: center;
+}
+.kotak span { display: block; color: #4b5b7d; font-size: .95rem; }
+.kotak strong { display: block; margin-top: 8px; color: var(--biru); font-size: 1.45rem; line-height: 1.25; }
+.kotak small { display: block; margin-top: 4px; color: #4b5b7d; font-size: .85rem; }
+
+/* Daftar fitur dengan tanda centang */
+.fitur { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.fitur li {
+  position: relative; padding: 14px 16px 14px 46px;
+  background: #f6f9ff; border: 1px solid #d9e2f2; border-radius: 10px;
+  text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto;
+}
+.fitur li::before {
+  content: ""; position: absolute; left: 17px; top: 20px;
+  width: 11px; height: 6px;
+  border-left: 3px solid #1a8a4a; border-bottom: 3px solid #1a8a4a;
+  transform: rotate(-45deg);
+}
+.tag {
+  display: inline-block; margin-left: 6px; padding: 1px 8px;
+  background: #dbe8ff; color: #1448c8; border-radius: 999px;
+  font-size: .75rem; font-weight: 700; font-style: normal; vertical-align: middle;
+}
+
+/* Tabel perbedaan tipe */
+.tabel-wrap { overflow-x: auto; border: 1px solid #d9e2f2; border-radius: 12px; }
+.tabel { width: 100%; min-width: 580px; border-collapse: collapse; }
+.tabel th, .tabel td { padding: 12px 16px; text-align: left; border-top: 1px solid #d9e2f2; vertical-align: top; }
+.tabel thead th { background: var(--navy); color: #fff; border-top: 0; }
+.tabel tbody th { background: #eef3fb; color: var(--navy); font-weight: 600; width: 28%; }
+.tabel .sama { text-align: center; color: #4b5b7d; background: #f6f9ff; }
+
+/* Kotak harga */
+.harga-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.kotak-harga { padding: 24px; background: #fff; border: 2px solid #d9e2f2; border-radius: 16px; }
+.kotak-harga--max { border-color: var(--navy); background: #f1f6ff; }
+.kotak-harga__tipe {
+  display: inline-block; padding: 6px 12px; background: #dbe8ff; color: #1448c8;
+  font-size: .8rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+}
+.kotak-harga__angka { margin: 14px 0 2px; color: var(--navy); font-size: 1.9rem; font-weight: 800; line-height: 1.2; }
+.kotak-harga__ket { margin: 0 0 14px; color: #4b5b7d; font-size: .9rem; }
+.kotak-harga ul { margin: 0 0 18px; padding-left: 20px; }
+.kotak-harga li { margin-bottom: 6px; }
+.kotak-harga .btn { display: block; text-align: center; }
+
+.catatan { margin: 16px 0 0; font-size: .85rem; color: #5a6b8c; max-width: 80ch; }
+
+/* Ajakan di bawah */
+.ajakan { margin-top: 56px; padding: 28px 24px; border-radius: 16px; background: var(--navy); color: #fff; }
+.ajakan h2 { margin: 0 0 8px; font-size: 1.5rem; }
+.ajakan p { margin: 0 0 8px; max-width: 65ch; }
+.ajakan .btn--garis { color: #fff; border-color: #fff; }
+.ajakan .btn--garis:hover { background: rgba(255, 255, 255, .12); }
+
+@media (max-width: 560px) {
+  .kotak-grid { grid-template-columns: repeat(2, 1fr); }
+  .kotak strong { font-size: 1.2rem; }
+}
+
+
+/* Kotak harga tunggal (mobil dengan satu tipe) */
+.harga-grid--satu { grid-template-columns: minmax(280px, 520px); }
+
+
+
